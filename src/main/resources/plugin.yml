@@ -1,0 +1,8 @@
+name: NormalAPI
+version: '1.0-SNAPSHOT'
+main: org.normal.NormalAPI
+api-version: '1.21'
+prefix: NormalAPI
+load: STARTUP
+authors: [ NormalMan_V2 ]
+description: General utilities for the Normal Plugin line.
