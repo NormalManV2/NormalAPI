@@ -19,10 +19,6 @@ public record BankTransactionImpl(
         CurrencyType currencyType)
         implements BankTransaction {
 
-    public static BankTransactionImpl createTransaction(UUID userId, UUID accountId, BigDecimal amount, Instant instant, TransactionType type, String description, CurrencyType currencyType) {
-        return new BankTransactionImpl(userId, accountId, amount, instant, type, description, currencyType);
-    }
-
     @Override
     public CurrencyType getCurrencyType() {
         return this.currencyType;
