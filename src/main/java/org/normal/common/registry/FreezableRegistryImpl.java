@@ -1,4 +1,4 @@
-package org.normal.impl.registry;
+package org.normal.common.registry;
 
 import org.normal.api.registry.FreezableRegistry;
 
