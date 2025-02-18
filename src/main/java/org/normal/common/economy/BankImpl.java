@@ -15,7 +15,7 @@ import java.util.UUID;
 public class BankImpl<T extends CurrencyType> implements Bank<T> {
 
     private final List<BankTransaction> transactions;
-    private final Balance balance;
+    private Balance balance;
     private final UUID userId;
     private final T currencyType;
 
@@ -71,6 +71,12 @@ public class BankImpl<T extends CurrencyType> implements Bank<T> {
     @Override
     public BigDecimal modifyBalance(BankTransaction transaction) {
         return this.addTransaction(transaction);
+    }
+
+    @Override
+    public Balance setBalance(Balance newBalance) {
+        this.balance = newBalance;
+        return this.balance;
     }
 
 }

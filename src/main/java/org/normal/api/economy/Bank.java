@@ -51,4 +51,11 @@ public interface Bank <T extends CurrencyType> extends Serializable {
      */
     BigDecimal modifyBalance(BankTransaction transaction);
 
+    /**
+     * Sets the balance held within this bank to the passed balance object.
+     * @param newBalance The passed balance object.
+     * @return The balance field held within the bank.
+     */
+    Balance setBalance(Balance newBalance);
+
 }
