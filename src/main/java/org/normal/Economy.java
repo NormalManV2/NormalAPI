@@ -22,8 +22,7 @@ public class Economy {
             BigDecimal amount,
             Instant instant,
             TransactionType transactionType,
-            String description,
-            CurrencyType currencyType) {
+            String description) {
 
         return new BankTransactionImpl(
                 transactionId,
@@ -31,8 +30,7 @@ public class Economy {
                 amount,
                 instant,
                 transactionType,
-                description,
-                currencyType);
+                description);
     }
 
     public CurrencyTypeImpl createCurrencyType(String name, String symbol, String pluginName) {

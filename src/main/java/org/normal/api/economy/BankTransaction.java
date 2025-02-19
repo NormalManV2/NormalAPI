@@ -42,11 +42,4 @@ public interface BankTransaction extends Serializable {
      * @return The transaction type.
      */
     TransactionType type();
-
-    /**
-     * Get the currency type of this transaction.
-     * @return The currency type.
-     */
-    CurrencyType getCurrencyType();
-
 }
