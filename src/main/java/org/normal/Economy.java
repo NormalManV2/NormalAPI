@@ -1,7 +1,9 @@
 package org.normal;
 
-import org.normal.api.economy.CurrencyType;
-import org.normal.api.economy.TransactionType;
+import org.normal.api.economy.bank.Bank;
+import org.normal.api.economy.currency.CurrencyType;
+import org.normal.api.economy.bank.TransactionType;
+import org.normal.common.economy.AccountImpl;
 import org.normal.common.economy.BankImpl;
 import org.normal.common.economy.BankTransactionImpl;
 import org.normal.common.economy.CurrencyTypeImpl;
@@ -12,8 +14,12 @@ import java.util.UUID;
 
 public class Economy {
 
-    public <T extends CurrencyType> BankImpl<T> createBank(UUID accountId, T currencyType, BigDecimal initialBalance) {
-        return new BankImpl<>(accountId, currencyType, initialBalance);
+    public Bank createBank() {
+        return new BankImpl();
+    }
+
+    public <T extends CurrencyType> AccountImpl<T> createAccount(UUID accountId, T currencyType, BigDecimal initialBalance) {
+        return new AccountImpl<>(accountId, currencyType, initialBalance);
     }
 
     public BankTransactionImpl createBankTransaction(

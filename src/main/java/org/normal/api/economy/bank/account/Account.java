@@ -1,11 +1,16 @@
-package org.normal.api.economy;
+package org.normal.api.economy.bank.account;
+
+import org.normal.api.economy.bank.Balance;
+import org.normal.api.economy.bank.BankTransaction;
+import org.normal.api.economy.currency.CurrencyType;
+import org.normal.api.economy.bank.TransactionType;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-public interface Bank <T extends CurrencyType> extends Serializable {
+public interface Account<T extends CurrencyType> extends Serializable {
 
     /**
      * Get the type of currency this bank holds.
@@ -17,7 +22,7 @@ public interface Bank <T extends CurrencyType> extends Serializable {
      * Get the user of the bank.
      * @return The bank user.
      */
-    UUID getBankUser();
+    UUID getAccountUser();
 
     /**
      * Get the transactions list.
@@ -39,7 +44,7 @@ public interface Bank <T extends CurrencyType> extends Serializable {
     BigDecimal addTransaction(BankTransaction transaction);
 
     /**
-     * Get the balance of the user.
+     * Get the BigDecimal value of the balance.
      * @return The balance of the user.
      */
     BigDecimal getBalance();

@@ -1,6 +1,6 @@
 package org.normal.common.economy;
 
-import org.normal.api.economy.CurrencyType;
+import org.normal.api.economy.currency.CurrencyType;
 
 public record CurrencyTypeImpl(
         String name,

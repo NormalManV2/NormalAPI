@@ -1,8 +1,8 @@
 package org.normal.common.economy;
 
 import org.jetbrains.annotations.Nullable;
-import org.normal.api.economy.BankTransaction;
-import org.normal.api.economy.TransactionType;
+import org.normal.api.economy.bank.BankTransaction;
+import org.normal.api.economy.bank.TransactionType;
 
 import java.math.BigDecimal;
 import java.time.Instant;

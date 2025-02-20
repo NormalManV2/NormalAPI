@@ -1,6 +1,6 @@
 package org.normal.common.economy;
 
-import org.normal.api.economy.Balance;
+import org.normal.api.economy.bank.Balance;
 
 import java.math.BigDecimal;
 

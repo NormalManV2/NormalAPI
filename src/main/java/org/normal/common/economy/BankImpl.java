@@ -1,82 +1,59 @@
 package org.normal.common.economy;
 
-import org.normal.api.economy.Balance;
-import org.normal.api.economy.Bank;
-import org.normal.api.economy.BankTransaction;
-import org.normal.api.economy.CurrencyType;
-import org.normal.api.economy.TransactionType;
+import org.normal.api.economy.bank.Bank;
+import org.normal.api.economy.bank.account.Account;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class BankImpl<T extends CurrencyType> implements Bank<T> {
+public class BankImpl implements Bank {
 
-    private final List<BankTransaction> transactions;
-    private Balance balance;
-    private final UUID userId;
-    private final T currencyType;
+    private final List<Account<?>> accounts;
 
-    public BankImpl(UUID uuid, T currencyType, BigDecimal initialBalance) {
-        this.currencyType = currencyType;
-        this.transactions = new ArrayList<>();
-        this.balance = new BalanceImpl(initialBalance);
-        this.userId = uuid;
+    public BankImpl() {
+        this.accounts = new ArrayList<>();
     }
 
     @Override
-    public T getType() {
-        return this.currencyType;
+    public List<Account<?>> getAccounts() {
+        return Collections.unmodifiableList(this.accounts);
     }
 
     @Override
-    public UUID getBankUser() {
-        return this.userId;
-    }
-
-    @Override
-    public List<BankTransaction> getTransactionsList() {
-        return Collections.unmodifiableList(this.transactions);
-    }
-
-    @Override
-    public List<BankTransaction> getTransactions(TransactionType type) {
-        return transactions.stream()
-                .filter(tx -> tx.type() == type)
-                .toList();
-    }
-
-    @Override
-    public BigDecimal addTransaction(BankTransaction transaction) {
-        this.transactions.add(transaction);
-
-        boolean success = transaction.type() == TransactionType.DEPOSIT
-                ? this.balance.add(transaction.amount())
-                : this.balance.subtract(transaction.amount());
-
-        if (transaction.type() == TransactionType.WITHDRAW && !success) {
-            throw new RuntimeException("Cannot withdraw transaction");
+    public Account<?> getAccount(UUID accountId) {
+        for (Account<?> foundAccount : this.accounts) {
+            if (foundAccount.getAccountUser().equals(accountId)) {
+                return foundAccount;
+            }
         }
-
-        return this.balance.getBalance();
+        throw new RuntimeException("No account found with id " + accountId);
     }
 
     @Override
-    public BigDecimal getBalance() {
-        return this.balance.getBalance();
+    public List<Account<?>> getAccounts(UUID accountId) {
+        List<Account<?>> foundAccounts = new ArrayList<>();
+        for (Account<?> foundAccount : this.accounts) {
+            if (foundAccount.getAccountUser().equals(accountId)) {
+                foundAccounts.add(foundAccount);
+            }
+        }
+        return Collections.unmodifiableList(foundAccounts);
     }
 
     @Override
-    public BigDecimal modifyBalance(BankTransaction transaction) {
-        return this.addTransaction(transaction);
+    public void addAccount(Account<?> account) {
+        this.accounts.add(account);
     }
 
     @Override
-    public Balance setBalance(Balance newBalance) {
-        this.balance = newBalance;
-        return this.balance;
+    public void removeAccount(Account<?> account) {
+        this.accounts.remove(account);
     }
 
+    @Override
+    public void removeAccounts(UUID accountId) {
+        this.accounts.removeIf(foundAccount -> foundAccount.getAccountUser().equals(accountId));
+    }
 }

@@ -1,4 +1,4 @@
-package org.normal.api.economy;
+package org.normal.api.economy.bank;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package org.normal.api.economy;
+package org.normal.api.economy.currency;
 
 public interface CurrencyType {
 
