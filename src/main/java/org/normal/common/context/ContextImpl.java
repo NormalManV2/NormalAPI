@@ -1,12 +1,13 @@
 package org.normal.common.context;
 
 import org.normal.api.context.Context;
+import org.normal.api.context.ContextType;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class ContextImpl<T> implements Context<T> {
+public class ContextImpl<T extends ContextType> implements Context<T> {
 
     private final Map<String, Object> data;
     private final T type;

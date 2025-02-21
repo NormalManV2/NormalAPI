@@ -12,14 +12,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class AccountImpl<T extends CurrencyType> implements Account<T> {
+public class AccountImpl implements Account<CurrencyType> {
 
     private final List<BankTransaction> transactions;
     private Balance balance;
     private final UUID userId;
-    private final T currencyType;
+    private final CurrencyType currencyType;
 
-    public AccountImpl(UUID uuid, T currencyType, BigDecimal initialBalance) {
+    public AccountImpl(UUID uuid, CurrencyType currencyType, BigDecimal initialBalance) {
         this.currencyType = currencyType;
         this.transactions = new ArrayList<>();
         this.balance = new BalanceImpl(initialBalance);
@@ -27,7 +27,7 @@ public class AccountImpl<T extends CurrencyType> implements Account<T> {
     }
 
     @Override
-    public T getType() {
+    public CurrencyType getType() {
         return this.currencyType;
     }
 

@@ -28,31 +28,31 @@ public class BankTransactionImpl implements BankTransaction {
 
     @Override
     public UUID transactionId() {
-        return null;
+        return this.transactionId;
     }
 
     @Override
     public UUID accountId() {
-        return null;
+        return this.accountId;
     }
 
     @Override
     public BigDecimal amount() {
-        return null;
+        return this.amount;
     }
 
     @Override
     public Instant instant() {
-        return null;
+        return this.instant;
     }
 
     @Override
     public String description() {
-        return "";
+        return this.description;
     }
 
     @Override
     public TransactionType type() {
-        return null;
+        return this.transactionType;
     }
 }

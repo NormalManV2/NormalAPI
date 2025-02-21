@@ -18,8 +18,8 @@ public class Economy {
         return new BankImpl();
     }
 
-    public <T extends CurrencyType> AccountImpl<T> createAccount(UUID accountId, T currencyType, BigDecimal initialBalance) {
-        return new AccountImpl<>(accountId, currencyType, initialBalance);
+    public AccountImpl createAccount(UUID accountId, CurrencyType currencyType, BigDecimal initialBalance) {
+        return new AccountImpl(accountId, currencyType, initialBalance);
     }
 
     public BankTransactionImpl createBankTransaction(

@@ -3,7 +3,7 @@ package org.normal.api.context;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface Context<T> {
+public interface Context<T extends ContextType> {
 
     T getType();
 
