@@ -8,7 +8,7 @@ public interface CurrencyType {
     String getName();
 
     /**
-     * The symbol of the currency in most cases would be used for chat extensions and UI displays... etc.
+     * The symbol of the currency, in most cases would be used for chat extensions and UI displays... etc.
      * @return The symbol of the currency.
      */
     String getSymbol();

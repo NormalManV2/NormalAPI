@@ -2,7 +2,7 @@ package org.normal.common.java.economy;
 
 import org.normal.api.java.economy.bank.Balance;
 import org.normal.api.java.economy.bank.account.Account;
-import org.normal.api.java.economy.bank.BankTransaction;
+import org.normal.api.java.economy.bank.Transaction;
 import org.normal.api.java.economy.currency.CurrencyType;
 import org.normal.api.java.economy.bank.TransactionType;
 
@@ -14,7 +14,7 @@ import java.util.UUID;
 
 public class AccountImpl implements Account<CurrencyType> {
 
-    private final List<BankTransaction> transactions;
+    private final List<Transaction> transactions;
     private Balance balance;
     private final UUID userId;
     private final CurrencyType currencyType;
@@ -37,19 +37,19 @@ public class AccountImpl implements Account<CurrencyType> {
     }
 
     @Override
-    public List<BankTransaction> getTransactionsList() {
+    public List<Transaction> getTransactionsList() {
         return Collections.unmodifiableList(this.transactions);
     }
 
     @Override
-    public List<BankTransaction> getTransactions(TransactionType type) {
+    public List<Transaction> getTransactions(TransactionType type) {
         return transactions.stream()
                 .filter(tx -> tx.type() == type)
                 .toList();
     }
 
     @Override
-    public BigDecimal addTransaction(BankTransaction transaction) {
+    public BigDecimal addTransaction(Transaction transaction) {
         this.transactions.add(transaction);
 
         boolean success = transaction.type() == TransactionType.DEPOSIT
@@ -69,7 +69,7 @@ public class AccountImpl implements Account<CurrencyType> {
     }
 
     @Override
-    public BigDecimal modifyBalance(BankTransaction transaction) {
+    public BigDecimal modifyBalance(Transaction transaction) {
         return this.addTransaction(transaction);
     }
 

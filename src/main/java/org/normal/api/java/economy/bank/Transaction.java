@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
-public interface BankTransaction extends Serializable {
+public interface Transaction extends Serializable {
 
     /**
      * Get the unique identifier of the transaction.

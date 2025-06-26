@@ -5,7 +5,7 @@ import org.normal.api.java.economy.currency.CurrencyType;
 import org.normal.api.java.economy.bank.TransactionType;
 import org.normal.common.java.economy.AccountImpl;
 import org.normal.common.java.economy.BankImpl;
-import org.normal.common.java.economy.BankTransactionImpl;
+import org.normal.common.java.economy.BankTransaction;
 import org.normal.common.java.economy.CurrencyTypeImpl;
 
 import java.math.BigDecimal;
@@ -22,7 +22,7 @@ public class Economy {
         return new AccountImpl(accountId, currencyType, initialBalance);
     }
 
-    public BankTransactionImpl createBankTransaction(
+    public BankTransaction createBankTransaction(
             UUID transactionId,
             UUID accountId,
             BigDecimal amount,
@@ -30,7 +30,7 @@ public class Economy {
             TransactionType transactionType,
             String description) {
 
-        return new BankTransactionImpl(
+        return new BankTransaction(
                 transactionId,
                 accountId,
                 amount,

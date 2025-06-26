@@ -1,14 +1,14 @@
 package org.normal.common.java.economy;
 
 import org.jetbrains.annotations.Nullable;
-import org.normal.api.java.economy.bank.BankTransaction;
+import org.normal.api.java.economy.bank.Transaction;
 import org.normal.api.java.economy.bank.TransactionType;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
-public class BankTransactionImpl implements BankTransaction {
+public class BankTransaction implements Transaction {
 
     private final UUID transactionId;
     private final UUID accountId;
@@ -17,7 +17,7 @@ public class BankTransactionImpl implements BankTransaction {
     private final TransactionType transactionType;
     private final String description;
 
-    public BankTransactionImpl(UUID transactionId, UUID accountId, BigDecimal amount, Instant instant, TransactionType type, @Nullable String description) {
+    public BankTransaction(UUID transactionId, UUID accountId, BigDecimal amount, Instant instant, TransactionType type, @Nullable String description) {
         this.transactionId = transactionId;
         this.accountId = accountId;
         this.amount = amount;

@@ -1,7 +1,7 @@
 package org.normal.api.java.economy.bank.account;
 
 import org.normal.api.java.economy.bank.Balance;
-import org.normal.api.java.economy.bank.BankTransaction;
+import org.normal.api.java.economy.bank.Transaction;
 import org.normal.api.java.economy.currency.CurrencyType;
 import org.normal.api.java.economy.bank.TransactionType;
 
@@ -29,20 +29,20 @@ public interface Account<T extends CurrencyType> extends Serializable {
      * @return The transactions list.
      * (This will only return transactions made during runtime)
      */
-    List<BankTransaction> getTransactionsList();
+    List<Transaction> getTransactionsList();
 
     /**
      * Get the transactions for a user.
      * @return The list of transactions for the user.
      */
-    List<BankTransaction> getTransactions(TransactionType type);
+    List<Transaction> getTransactions(TransactionType type);
 
     /**
      * Add a transaction for the user.
      * @param transaction The transaction to add.
      * @return The balance.
      */
-    BigDecimal addTransaction(BankTransaction transaction);
+    BigDecimal addTransaction(Transaction transaction);
 
     /**
      * Get the BigDecimal value of the balance.
@@ -55,7 +55,7 @@ public interface Account<T extends CurrencyType> extends Serializable {
      * @param transaction The transaction of which dictates internal handling logic.
      * @return The updated balance.
      */
-    BigDecimal modifyBalance(BankTransaction transaction);
+    BigDecimal modifyBalance(Transaction transaction);
 
     /**
      * Sets the balance held within this bank to the passed balance object.
