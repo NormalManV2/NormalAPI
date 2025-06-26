@@ -1,12 +1,12 @@
 package org.normal;
 
-import org.normal.api.economy.bank.Bank;
-import org.normal.api.economy.currency.CurrencyType;
-import org.normal.api.economy.bank.TransactionType;
-import org.normal.common.economy.AccountImpl;
-import org.normal.common.economy.BankImpl;
-import org.normal.common.economy.BankTransactionImpl;
-import org.normal.common.economy.CurrencyTypeImpl;
+import org.normal.api.java.economy.bank.Bank;
+import org.normal.api.java.economy.currency.CurrencyType;
+import org.normal.api.java.economy.bank.TransactionType;
+import org.normal.common.java.economy.AccountImpl;
+import org.normal.common.java.economy.BankImpl;
+import org.normal.common.java.economy.BankTransactionImpl;
+import org.normal.common.java.economy.CurrencyTypeImpl;
 
 import java.math.BigDecimal;
 import java.time.Instant;

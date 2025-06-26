@@ -1,7 +1,7 @@
 package org.normal;
 
-import org.normal.common.registry.FreezableRegistryImpl;
-import org.normal.common.registry.RegistryImpl;
+import org.normal.common.java.registry.FreezableRegistryImpl;
+import org.normal.common.java.registry.RegistryImpl;
 
 public class Registry {
 

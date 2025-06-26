@@ -1,7 +1,7 @@
 package org.normal;
 
-import org.normal.api.context.ContextType;
-import org.normal.common.context.ContextImpl;
+import org.normal.api.java.context.ContextType;
+import org.normal.common.java.context.ContextImpl;
 
 public class Context {
 
